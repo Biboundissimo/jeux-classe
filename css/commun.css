@@ -50,9 +50,9 @@ button { font-family: inherit; }
 .tuile:active, .tuile:hover { transform: translateY(-4px) scale(1.02); }
 .tuile h2 { margin: 16px 0 8px; font-size: 1.6rem; }
 .tuile p { margin: 0; color: var(--doux); font-size: 1.1rem; }
-.tuile .lettres { display: flex; gap: 8px; }
+.tuile .lettres { display: flex; gap: 8px; min-width: 0; }
 .tuile .lettres span {
-  width: 56px; height: 56px;
+  flex: 0 1 56px; min-width: 0; aspect-ratio: 1;
   display: grid; place-items: center;
   border-radius: 14px;
   background: var(--jaune);
@@ -61,6 +61,7 @@ button { font-family: inherit; }
 .tuile .lettres span:nth-child(2) { background: #8fd3c8; }
 .tuile .lettres span:nth-child(3) { background: #cdb4f6; }
 .tuile .lettres span:nth-child(4) { background: #a9c8ff; }
+.tuile .lettres span:nth-child(5) { background: #ffb3a7; }
 .tuile.bientot { opacity: 0.5; border-bottom-color: #ccc; }
 .tuile.bientot:hover { transform: none; }
 
@@ -86,7 +87,7 @@ button { font-family: inherit; }
 }
 .bandeau h1 { font-size: clamp(1.2rem, 3vw, 1.8rem); margin: 0; flex: 1; }
 .retour {
-  width: 56px; height: 56px;
+  flex: 0 1 56px; min-width: 0; aspect-ratio: 1;
   display: grid; place-items: center;
   border-radius: 50%;
   background: var(--blanc);
