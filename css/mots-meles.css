@@ -1,0 +1,99 @@
+/* =================== Jeu de mots mêlés =================== */
+.mots-meles .compteur {
+  font-size: 1.3rem;
+  font-weight: 700;
+  background: var(--blanc);
+  padding: 8px 16px;
+  border-radius: 999px;
+  box-shadow: var(--ombre);
+}
+
+.plateau {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 0 16px 16px;
+  min-height: 0;
+}
+
+.cadre-grille {
+  height: 100%;
+  aspect-ratio: 1;
+  max-width: min(100%, calc(100vw - 300px));
+  display: grid;
+  place-items: center;
+  container-type: size;
+}
+
+.grille {
+  position: relative;
+  width: 100cqmin;
+  height: 100cqmin;
+  background: var(--blanc);
+  border-radius: 20px;
+  box-shadow: var(--ombre);
+  touch-action: none;  /* indispensable pour sélectionner au doigt */
+  cursor: pointer;
+}
+
+.surlignage { position: absolute; inset: 2%; width: 96%; height: 96%; pointer-events: none; }
+.surlignage line { stroke-width: 0.78; stroke-linecap: round; stroke-opacity: 0.55; }
+.surlignage line.selection { stroke: var(--jaune); stroke-opacity: 0.8; }
+.surlignage line.trouve { animation: trace 0.35s ease-out; }
+.surlignage line.rate { stroke: var(--rouge); stroke-opacity: 0.4; }
+
+.lettres {
+  position: absolute;
+  inset: 2%;
+  display: grid;
+  grid-template-columns: repeat(var(--n), 1fr);
+  grid-template-rows: repeat(var(--n), 1fr);
+  pointer-events: none;
+}
+.lettres span {
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: calc(96cqmin / var(--n) * 0.58);
+  line-height: 1;
+}
+
+.liste-mots {
+  background: var(--blanc);
+  border-radius: 20px;
+  box-shadow: var(--ombre);
+  padding: 16px 20px;
+  min-width: 220px;
+  max-height: 100%;
+  overflow: auto;
+}
+.liste-mots h2 { margin: 0 0 10px; font-size: 1.3rem; color: var(--doux); }
+.liste-mots ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.liste-mots li {
+  font-size: clamp(1.1rem, 2.4vh, 1.5rem);
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 2px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.liste-mots li.trouve {
+  background: color-mix(in srgb, var(--couleur) 45%, white);
+  text-decoration: line-through;
+  text-decoration-thickness: 3px;
+}
+
+.niveaux .gros-bouton { display: flex; flex-direction: column; align-items: center; padding: 12px 28px; }
+.niveaux small { font-size: 1rem; font-weight: 400; margin-top: 4px; }
+
+@keyframes trace { from { stroke-opacity: 0; } }
+
+/* Écran étroit ou en portrait : la liste passe sous la grille. */
+@media (max-aspect-ratio: 5/4) {
+  .plateau { flex-direction: column; justify-content: flex-start; }
+  .cadre-grille { height: auto; width: 100%; max-width: 100%; flex: 0 1 auto; }
+  .liste-mots { width: 100%; min-width: 0; }
+  .liste-mots ul { flex-direction: row; flex-wrap: wrap; }
+}
