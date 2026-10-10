@@ -14,6 +14,9 @@ js/jeu-mots-meles.js        moteur du jeu de mots mêlés
 css/mots-meles.css          styles du jeu de mots mêlés
 js/jeu-lettres.js           moteur du jeu « lettres en désordre »
 css/jeu-lettres.css         styles du jeu « lettres en désordre »
+js/jeu-mots-croises.js      moteur du jeu de mots croisés
+js/reconnaissance-lettres.js  reconnaissance des lettres CAPITALES écrites au stylet (sans Internet)
+css/mots-croises.css        styles du jeu de mots croisés
 images/animaux/             photos des animaux (Wikimedia Commons, voir credits.html)
 images/cartes/              photos du jeu « lettres en désordre »
 jeux/sons-t-b-p-d/          jeu « J'entends t, b, p ou d ? »
@@ -25,6 +28,9 @@ jeux/mots-meles/            jeu « Mots mêlés »
 jeux/lettres-desordre/      jeu « Les lettres en désordre »
   index.html
   mots.js                   les mots, leur photo et le petit mot devant (« elle », « il »)
+jeux/mots-croises/          jeu « Mots croisés »
+  index.html
+  mots.js                   les mots et leurs définitions (la grille est construite automatiquement)
 credits.html                auteurs et licences des photos
 ```
 
@@ -48,3 +54,10 @@ Pour utiliser un enregistrement : placer le fichier dans `jeux/sons-t-b-p-d/sons
 1. Copier le dossier `jeux/sons-t-b-p-d/` en `jeux/sons-f-v/`.
 2. Modifier `mots.js` (titre, cases, mots) et ajouter les images dans `images/` (et leurs auteurs dans `credits.html`).
 3. Ajouter une tuile dans `index.html`.
+
+## Écriture au stylet (mots croisés)
+
+Les lettres doivent être écrites en CAPITALES. La reconnaissance compare le dessin à des modèles de lettres,
+sans connexion Internet. Si une lettre est mal reconnue, l'enfant touche la bonne lettre parmi les propositions
+« Pas la bonne lettre ? » : le dessin est alors mémorisé sur cet appareil pour mieux reconnaître cette écriture.
+Un clavier à l'écran est aussi disponible (bouton « Clavier »).

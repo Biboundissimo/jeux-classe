@@ -1,0 +1,152 @@
+/* =================== Jeu de mots croisés =================== */
+.mots-croises .compteur {
+  font-size: 1.3rem;
+  font-weight: 700;
+  background: var(--blanc);
+  padding: 8px 16px;
+  border-radius: 999px;
+  box-shadow: var(--ombre);
+}
+
+.plateau-croise {
+  display: grid;
+  grid-template-columns: minmax(220px, 320px) 1fr minmax(230px, 290px);
+  gap: 16px;
+  padding: 0 16px 16px;
+  min-height: 0;
+}
+
+/* ----- Définitions ----- */
+.definitions {
+  position: relative;
+  background: var(--blanc);
+  border-radius: 20px;
+  box-shadow: var(--ombre);
+  padding: 12px 16px;
+  overflow: auto;
+}
+.definitions h2 { margin: 6px 0; font-size: 1.2rem; color: var(--doux); }
+.definitions ol { list-style: none; margin: 0 0 10px; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.definitions li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 8px;
+  padding: 6px 8px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: clamp(0.95rem, 2.1vh, 1.2rem);
+  line-height: 1.3;
+}
+.definitions li .texte { flex: 1; min-width: 60%; }
+.definitions li .num {
+  min-width: 1.8em; height: 1.8em;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: #e9e4d6;
+  font-weight: 700;
+}
+.definitions li .lettres-def { font-size: 0.8em; color: var(--doux); }
+.definitions li.actif { background: #fff1c7; }
+.definitions li.actif .num { background: var(--jaune); }
+.definitions li.trouve .texte { color: #1f8a59; }
+.definitions li.trouve .num { background: var(--vert); color: var(--blanc); }
+
+/* ----- Grille ----- */
+.zone-grille { container-type: size; display: grid; place-items: center; min-height: 0; }
+.grille-croisee {
+  --case: min(calc(100cqw / var(--colonnes)), calc(100cqh / var(--lignes)), 72px);
+  display: grid;
+  grid-template-columns: repeat(var(--colonnes), var(--case));
+  grid-template-rows: repeat(var(--lignes), var(--case));
+}
+.case-croisee {
+  position: relative;
+  background: var(--blanc);
+  box-shadow: inset 0 0 0 1.5px var(--texte);
+  margin: -0.75px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+.case-croisee .lettre { font-size: calc(var(--case) * 0.62); font-weight: 700; line-height: 1; }
+.case-croisee .numero {
+  position: absolute;
+  top: 2px; left: 4px;
+  font-size: max(10px, calc(var(--case) * 0.24));
+  font-weight: 700;
+  color: var(--doux);
+  line-height: 1;
+}
+.case-croisee.mot-actif { background: #fff1c7; }
+.case-croisee.case-active { background: var(--jaune); box-shadow: inset 0 0 0 4px #e09f00; z-index: 1; }
+.case-croisee.valide .lettre { color: #1f8a59; }
+.case-croisee.valide:not(.mot-actif) { background: #e3f7ec; }
+.case-croisee.faux { animation: faux 0.6s; }
+
+/* ----- Ardoise ----- */
+.ardoise {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 0;
+}
+.aide-ardoise { margin: 0; text-align: center; font-weight: 700; color: var(--doux); }
+.ardoise canvas {
+  width: 100%;
+  aspect-ratio: 1;
+  max-height: 45vh;
+  background:
+    linear-gradient(transparent calc(80% - 1px), #e2dccb calc(80% - 1px), #e2dccb 80%, transparent 80%),
+    var(--blanc);
+  border: 4px dashed #c9c2b0;
+  border-radius: 20px;
+  touch-action: none;   /* indispensable pour écrire au stylet ou au doigt */
+  cursor: crosshair;
+}
+.alternatives { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px; min-height: 48px; }
+.alternatives span { font-size: 0.95rem; color: var(--doux); width: 100%; text-align: center; }
+.alternatives button, .clavier button {
+  min-width: 44px; height: 44px;
+  border: none;
+  border-radius: 10px;
+  background: var(--blanc);
+  box-shadow: 0 3px 0 #c9c2b0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.alternatives button { background: #fff1c7; }
+.outils { display: flex; gap: 8px; }
+.outil {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 14px;
+  background: #8d99ae;
+  color: var(--blanc);
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.clavier { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; }
+.clavier.cache { display: none; }
+.clavier button { min-width: 0; height: 40px; font-size: 1.1rem; }
+
+@keyframes faux {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); background: #ffd6d9; }
+  75% { transform: translateX(5px); background: #ffd6d9; }
+}
+
+/* Écran étroit ou en portrait : grille, puis ardoise, puis définitions. */
+@media (max-aspect-ratio: 1/1) {
+  .mots-croises.jeu { height: auto; min-height: 100dvh; overflow: visible; }
+  .plateau-croise { grid-template-columns: 1fr; }
+  .zone-grille { height: 50vh; order: 1; }
+  .ardoise { order: 2; align-items: center; }
+  .ardoise canvas { width: min(70vw, 320px); }
+  .outils, .clavier { width: min(90vw, 420px); }
+  .definitions { order: 3; }
+}
