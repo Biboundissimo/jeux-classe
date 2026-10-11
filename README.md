@@ -25,9 +25,12 @@ jeux/sons-t-b-p-d/          jeu « J'entends t, b, p ou d ? »
 jeux/mots-meles/            jeu « Mots mêlés »
   index.html
   mots.js                   la liste des mots cachés et la taille de la grille par niveau
-jeux/lettres-desordre/      jeu « Les lettres en désordre »
+jeux/lettres-desordre/      jeu « Les lettres en désordre 1 » (terrier, museau, plume, poisson)
   index.html
   mots.js                   les mots, leur photo et le petit mot devant (« elle », « il »)
+jeux/lettres-desordre-2/    jeu « Les lettres en désordre 2 » (insecte, tige, il chasse, elle grimpe)
+  index.html
+  mots.js
 jeux/mots-croises/          jeu « Mots croisés »
   index.html
   mots.js                   les mots et leurs définitions (la grille est construite automatiquement)
