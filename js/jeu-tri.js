@@ -64,6 +64,10 @@ function lancerJeuTri(config) {
   const progression = $('.progression');
 
   // ----- Construction des cases -----
+  // Une colonne par case (3 cases restent sur une ligne même sur écran étroit).
+  const nbCases = config.cases.length;
+  $('.cases').style.setProperty('--nb-cases', nbCases);
+  $('.cases').style.setProperty('--nb-cases-etroit', nbCases <= 3 ? nbCases : 2);
   const cases = config.cases.map(c => {
     const el = document.createElement('div');
     el.className = 'case';

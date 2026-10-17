@@ -26,6 +26,17 @@ button { font-family: inherit; }
 .accueil header { text-align: center; padding: 32px 16px 8px; }
 .accueil h1 { font-size: clamp(2rem, 6vw, 3.2rem); margin: 0; }
 .accueil header p { font-size: 1.4rem; color: var(--doux); margin: 8px 0 0; }
+.retour-semaines {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: var(--blanc);
+  box-shadow: var(--ombre);
+  color: var(--texte);
+  font-size: 1.1rem;
+  text-decoration: none;
+}
 
 .catalogue {
   display: grid;
@@ -142,7 +153,7 @@ button { font-family: inherit; }
 
 .cases {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(var(--nb-cases, 4), 1fr);
   gap: 14px;
   padding: 0 14px 14px;
 }
@@ -274,7 +285,7 @@ svg.inline { width: 1.3em; height: 1.3em; vertical-align: middle; }
 
 /* ----- Écrans étroits (tablette en portrait, téléphone) ----- */
 @media (max-width: 700px) {
-  .cases { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 0 10px 10px; }
+  .cases { grid-template-columns: repeat(var(--nb-cases-etroit, 2), 1fr); gap: 10px; padding: 0 10px 10px; }
   .case { min-height: 20vh; }
   .bouton-son { width: 64px; height: 64px; }
   .bouton-son svg { width: 36px; height: 36px; }
