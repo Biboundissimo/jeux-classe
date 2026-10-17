@@ -76,4 +76,5 @@ Un clavier à l'écran est aussi disponible (bouton « Clavier »).
 
 1. Copier `semaine-7.html` en `semaine-8.html` et y mettre les tuiles des nouveaux jeux.
 2. Ajouter une tuile « Semaine 8 » dans `index.html`.
-3. Créer les jeux en copiant un dossier existant (ex. `jeux/mots-meles-s7/` → `jeux/mots-meles-s8/`) et changer `mots.js`.
+3. Créer les jeux en copiant un dossier existant (ex. `jeux/mots-meles-s7/` → `jeux/mots-meles-s8/`) et changer `mots.js`,
+   sans oublier `accueil: '../../semaine-8.html'` pour que le bouton ⌂ ramène à la bonne semaine.

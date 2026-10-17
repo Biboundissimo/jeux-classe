@@ -5,6 +5,7 @@
  */
 lancerMotsCroises({
   titre: 'Mots croisés',
+  accueil: '../../semaine-revision.html',
   consigne: 'Touche une définition ou une case, puis écris la lettre avec le stylet dans le cadre blanc.',
 
   mots: [

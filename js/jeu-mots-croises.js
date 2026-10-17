@@ -19,10 +19,12 @@ function lancerMotsCroises(config) {
   const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
   document.title = config.titre;
+  // Page de la semaine où revenir avec le bouton ⌂ (sinon la page d'accueil).
+  const accueil = config.accueil || '../../index.html';
   document.body.innerHTML = `
     <div class="jeu mots-croises">
       <header class="bandeau">
-        <a class="retour" href="../../index.html" aria-label="Retour à l'accueil">⌂</a>
+        <a class="retour" href="${accueil}" aria-label="Retour à la liste des jeux">⌂</a>
         <h1>${config.titre}</h1>
         <div class="compteur"></div>
       </header>
@@ -65,7 +67,7 @@ function lancerMotsCroises(config) {
           <p class="resultat"></p>
           <div class="boutons">
             <button class="gros-bouton" id="rejouer">Nouvelle grille</button>
-            <a class="gros-bouton secondaire" href="../../index.html">Accueil</a>
+            <a class="gros-bouton secondaire" href="${accueil}">Accueil</a>
           </div>
         </div>
       </div>

@@ -5,6 +5,7 @@
  */
 lancerMotsMeles({
   titre: 'Mots mêlés',
+  accueil: '../../semaine-revision.html',
   consigne: 'Retrouve les mots cachés dans la grille. Fais glisser ton doigt de la première à la dernière lettre du mot.',
   // Nombre de lettres par côté de la grille, selon le niveau.
   tailles: { facile: 12, moyen: 12, difficile: 15 },

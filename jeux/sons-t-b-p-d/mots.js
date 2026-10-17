@@ -8,6 +8,7 @@
  */
 lancerJeuTri({
   titre: "J'entends t, b, p ou d ?",
+  accueil: '../../semaine-revision.html',
   consigne: "Écoute bien le nom de l'animal, puis fais glisser la photo dans la bonne case.",
   dossierImages: '../../images/animaux/',
 

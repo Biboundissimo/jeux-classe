@@ -9,6 +9,7 @@
  */
 lancerJeuTri({
   titre: "J'entends ch, ph… ou pas de h ?",
+  accueil: '../../semaine-7.html',
   consigne: "Écoute bien le mot, puis fais glisser la photo dans la bonne case. Attention : avec h tout seul, on n'entend rien !",
   dossierImages: '../../images/cartes/',
 

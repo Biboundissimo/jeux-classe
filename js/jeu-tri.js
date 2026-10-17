@@ -18,10 +18,12 @@ function lancerJeuTri(config) {
     '<path d="M14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z" fill="currentColor"/></svg>';
 
   document.title = config.titre;
+  // Page de la semaine où revenir avec le bouton ⌂ (sinon la page d'accueil).
+  const accueil = config.accueil || '../../index.html';
   document.body.innerHTML = `
     <div class="jeu">
       <header class="bandeau">
-        <a class="retour" href="../../index.html" aria-label="Retour à l'accueil">⌂</a>
+        <a class="retour" href="${accueil}" aria-label="Retour à la liste des jeux">⌂</a>
         <h1>${config.titre}</h1>
         <div class="progression" aria-label="Progression"></div>
       </header>
@@ -53,7 +55,7 @@ function lancerJeuTri(config) {
           <div class="a-revoir"></div>
           <div class="boutons">
             <button class="gros-bouton" id="rejouer">Rejouer</button>
-            <a class="gros-bouton secondaire" href="../../index.html">Accueil</a>
+            <a class="gros-bouton secondaire" href="${accueil}">Accueil</a>
           </div>
         </div>
       </div>

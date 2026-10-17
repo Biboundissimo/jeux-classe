@@ -7,6 +7,7 @@
  */
 lancerJeuLettres({
   titre: 'Les lettres en désordre 1',
+  accueil: '../../semaine-revision.html',
   consigne: "Écoute le mot, puis fais glisser les lettres pour les remettre dans l'ordre.",
   dossierImages: '../../images/cartes/',
   // Nombre minimum de lettres que l'enfant devra déplacer pour remettre le mot en ordre.
