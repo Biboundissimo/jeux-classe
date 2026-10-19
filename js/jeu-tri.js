@@ -7,6 +7,8 @@
  *   consigne: "Écoute le mot et glisse l'image dans la bonne case.",
  *   dossierImages: "../../images/animaux/",
  *   cases: [ { id: 't', etiquette: "J'entends", lettre: 't', couleur: '#e76f51' }, ... ],
+ *   (variante : { id: 'ph', lettre: 'ph', prononce: '[f]', couleur: ... } affiche la lettre
+ *    dans une carte, puis une oreille et le son entendu ; prononce: null = oreille barrée, lettre muette)
  *   mots:  [ { mot: 'tortue', image: 'tortue.jpg', case: 't', son: 'facultatif.mp3' }, ... ]
  * }
  */
@@ -16,6 +18,15 @@ function lancerJeuTri(config) {
     '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3z" fill="currentColor"/>' +
     '<path d="M16.5 12A4.5 4.5 0 0 0 14 8v8a4.5 4.5 0 0 0 2.5-4z" fill="currentColor"/>' +
     '<path d="M14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z" fill="currentColor"/></svg>';
+  // Oreille avec des traits de son ; barrée en rouge quand la lettre est muette.
+  const iconeOreille = barree =>
+    '<svg class="oreille" viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" ' +
+    'stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">' +
+    '<path d="M3 15l6 3M2 24h7M3 33l6-3"/>' +
+    '<path d="M16 19a12 12 0 0 1 24 0c0 6-4 8-6 11s-2 11-9 11a6 6 0 0 1-6-5"/>' +
+    '<path d="M22 19a6 6 0 0 1 12 0c0 3-3 4-4 6"/>' +
+    (barree ? '<path d="M12 44L44 6" stroke="#e63946" stroke-width="4"/>' : '') +
+    '</svg>';
 
   document.title = config.titre;
   // Page de la semaine où revenir avec le bouton ⌂ (sinon la page d'accueil).
@@ -74,9 +85,14 @@ function lancerJeuTri(config) {
     const el = document.createElement('div');
     el.className = 'case';
     el.style.setProperty('--couleur', c.couleur);
-    el.innerHTML = `
-      <div class="titre-case"><span>${c.etiquette}</span><strong>${c.lettre}</strong></div>
-      <div class="contenu"></div>`;
+    const titre = 'prononce' in c
+      ? `<div class="titre-case titre-son">
+           <strong class="carte-lettre">${c.lettre}</strong>
+           ${iconeOreille(!c.prononce)}
+           ${c.prononce ? `<span class="son-entendu">${c.prononce}</span>` : ''}
+         </div>`
+      : `<div class="titre-case"><span>${c.etiquette}</span><strong>${c.lettre}</strong></div>`;
+    el.innerHTML = `${titre}<div class="contenu"></div>`;
     $('.cases').appendChild(el);
     return { ...c, el, contenu: el.querySelector('.contenu') };
   });

@@ -1,5 +1,5 @@
 /*
- * Jeu « J'entends ch, ph… ou pas de h ? » (semaine 7, lecture « La lettre h »).
+ * Jeu « ch, ph ou h : qu'est-ce que j'entends ? » (semaine 7, lecture « La lettre h »).
  * ch : son [ch] ; ph : son [f] ; h tout seul : on ne l'entend pas.
  * Les mots viennent de la fiche de lecture 7. Chaque mot n'appartient qu'à une seule case.
  * Photos : Wikimedia Commons (auteurs et licences dans credits.html à la racine du site).
@@ -8,15 +8,16 @@
  * enregistrer un fichier (ex. « sons/chat.mp3 ») et ajouter  son: 'sons/chat.mp3'  au mot.
  */
 lancerJeuTri({
-  titre: "J'entends ch, ph… ou pas de h ?",
+  titre: "ch, ph ou h : qu'est-ce que j'entends ?",
   accueil: '../../semaine-7.html',
-  consigne: "Écoute bien le mot, puis fais glisser la photo dans la bonne case. Attention : avec h tout seul, on n'entend rien !",
+  consigne: "Écoute bien le mot, puis fais glisser la photo dans la bonne case. Attention : ph se dit [f], et h tout seul ne s'entend pas !",
   dossierImages: '../../images/cartes/',
 
   cases: [
-    { id: 'ch', etiquette: "J'entends",        lettre: 'ch', couleur: '#e76f51' },
-    { id: 'ph', etiquette: "J'entends",        lettre: 'ph', couleur: '#2a9d8f' },
-    { id: 'h',  etiquette: "Je n'entends pas", lettre: 'h',  couleur: '#9b5de5' },
+    // On montre la lettre écrite, puis ce que l'oreille entend.
+    { id: 'ch', lettre: 'ch', prononce: '[ch]', couleur: '#e76f51' },
+    { id: 'ph', lettre: 'ph', prononce: '[f]',  couleur: '#2a9d8f' },
+    { id: 'h',  lettre: 'h',  prononce: null,   couleur: '#9b5de5' },
   ],
 
   mots: [

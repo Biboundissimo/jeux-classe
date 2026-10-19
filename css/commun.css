@@ -186,6 +186,17 @@ button { font-family: inherit; }
 .titre-case span { font-size: clamp(1rem, 2.2vw, 1.5rem); font-weight: 700; }
 .titre-case strong { font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1; }
 
+/* Variante « lettre → oreille → son entendu » (ex. ph → [f], h → oreille barrée) */
+.titre-son { align-items: center; gap: clamp(4px, 1vw, 10px); flex-wrap: wrap; }
+.carte-lettre {
+  border: 4px solid var(--couleur);
+  border-radius: 14px;
+  background: white;
+  padding: 2px clamp(6px, 1.2vw, 14px) 6px;
+}
+.titre-son .oreille { width: clamp(36px, 5vw, 56px); height: clamp(36px, 5vw, 56px); flex-shrink: 0; }
+.son-entendu { font-size: clamp(1.6rem, 3.6vw, 2.6rem); font-weight: 700; color: #3a6ea5; }
+
 .contenu {
   flex: 1;
   display: flex;

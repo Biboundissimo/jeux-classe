@@ -36,7 +36,7 @@ jeux/lettres-desordre-2/    jeu « Les lettres en désordre 2 » (insecte, tige,
 jeux/mots-croises/          jeu « Mots croisés »
   index.html
   mots.js                   les mots et leurs définitions (la grille est construite automatiquement)
-jeux/sons-ch-ph-h/          semaine 7 : jeu « J'entends ch, ph… ou pas de h ? » (3 cases)
+jeux/sons-ch-ph-h/          semaine 7 : jeu « ch, ph ou h : qu'est-ce que j'entends ? » (3 cases)
 jeux/lettres-desordre-s7-1/ semaine 7 : une tache, une moustache, le chat, il cherche
 jeux/lettres-desordre-s7-2/ semaine 7 : chez, il habite, une photo, le phoque
 jeux/mots-meles-s7/         semaine 7 : mots mêlés avec les 8 mots de la dictée
