@@ -1,6 +1,6 @@
 # Les jeux de la classe
 
-Petits jeux pédagogiques pour des élèves de CE2 (8 ans), utilisables dans un navigateur, à la souris ou sur écran tactile.
+Petits jeux pédagogiques pour des élèves de CE1 (8 ans), utilisables dans un navigateur, à la souris ou sur écran tactile.
 Aucun serveur ni installation : il suffit d'ouvrir `index.html` (ou de déposer le dossier sur n'importe quel hébergement de pages statiques).
 
 ## Organisation
