@@ -9,6 +9,7 @@ Aucun serveur ni installation : il suffit d'ouvrir `index.html` (ou de déposer 
 index.html                  page d'accueil (liste des semaines)
 semaine-revision.html       jeux de la semaine Révision
 semaine-7.html              jeux de la semaine 7
+semaine-8.html              jeux de la semaine 8
 css/commun.css              styles communs
 js/commun.js                voix, bruitages, glisser-déposer
 js/jeu-tri.js               moteur réutilisable « ranger des images dans des cases »
@@ -41,6 +42,11 @@ jeux/lettres-desordre-s7-1/ semaine 7 : une tache, une moustache, le chat, il ch
 jeux/lettres-desordre-s7-2/ semaine 7 : chez, il habite, une photo, le phoque
 jeux/mots-meles-s7/         semaine 7 : mots mêlés avec les 8 mots de la dictée
 jeux/mots-croises-s7/       semaine 7 : mots croisés avec les 8 mots de la dictée
+jeux/sons-o-ou-on-om/       semaine 8 : jeu « o, ou, on ou om : qu'est-ce que j'entends ? » (4 cases, mot écrit sous la photo)
+jeux/lettres-desordre-s8-1/ semaine 8 : un mouton, le monde, le bison, une carotte
+jeux/lettres-desordre-s8-2/ semaine 8 : onze, il tombe, il trouve, trop
+jeux/mots-meles-s8/         semaine 8 : mots mêlés avec les 8 mots de la dictée
+jeux/mots-croises-s8/       semaine 8 : mots croisés avec les 8 mots de la dictée
 credits.html                auteurs et licences des photos
 ```
 

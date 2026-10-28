@@ -10,6 +10,7 @@
  *   (variante : { id: 'ph', lettre: 'ph', prononce: '[f]', couleur: ... } affiche la lettre
  *    dans une carte, puis une oreille et le son entendu ; prononce: null = oreille barrée, lettre muette)
  *   mots:  [ { mot: 'tortue', image: 'tortue.jpg', case: 't', son: 'facultatif.mp3' }, ... ]
+ *   afficherMot: true   (facultatif) écrit le mot sous la photo, quand l'oreille ne suffit pas (on / om)
  * }
  */
 function lancerJeuTri(config) {
@@ -41,7 +42,7 @@ function lancerJeuTri(config) {
 
       <main class="scene">
         <div class="emplacement-carte">
-          <div class="carte" aria-live="polite"><img alt=""></div>
+          <div class="carte${config.afficherMot ? ' avec-mot' : ''}" aria-live="polite"><img alt=""><span class="mot-ecrit"></span></div>
           <button class="bouton-son" aria-label="Réécouter le mot">${ICONE_SON}</button>
         </div>
       </main>
@@ -137,6 +138,7 @@ function lancerJeuTri(config) {
     const m = motActuel();
     imageCarte.src = config.dossierImages + m.image;
     imageCarte.alt = m.mot;
+    if (config.afficherMot) $('.mot-ecrit').textContent = m.mot;
     carte.classList.remove('bloque', 'partie');
     carte.style.transition = 'none';
     carte.style.transform = '';
