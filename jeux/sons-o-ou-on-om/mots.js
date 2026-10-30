@@ -1,7 +1,7 @@
 /*
- * Jeu « o, ou, on ou om : qu'est-ce que j'entends ? » (semaine 8, lecture « La lettre o »).
+ * Jeu « o, ou, on et om : qu'est-ce que j'entends ? » (semaine 8, lecture « La lettre o »).
  * o : son [o] ; ou : son [ou] ; on et om : son [on] (devant m, p, b, le n se transforme en m).
- * on et om se disent pareil : le mot est donc écrit sous la photo (afficherMot).
+ * on et om se disent pareil : on entend om quand le son [on] est suivi de [p] ou [b] (pompier, ombre).
  * Chaque mot n'appartient qu'à une seule case (pas de « mouton » ni de « cochon » ici).
  * Photos : Wikimedia Commons (auteurs et licences dans credits.html à la racine du site).
  *
@@ -9,11 +9,10 @@
  * enregistrer un fichier (ex. « sons/loup.mp3 ») et ajouter  son: 'sons/loup.mp3'  au mot.
  */
 lancerJeuTri({
-  titre: "o, ou, on ou om : qu'est-ce que j'entends ?",
+  titre: "o, ou, on et om : qu'est-ce que j'entends ?",
   accueil: '../../semaine-8.html',
-  consigne: "Écoute et lis le mot, puis fais glisser la photo dans la bonne case. Attention : on et om se disent pareil, regarde bien comment le mot s'écrit !",
+  consigne: "Écoute bien le mot, puis fais glisser la photo dans la bonne case. Attention : on et om se disent pareil. Si tu entends [p] ou [b] juste après [on], c'est om !",
   dossierImages: '../../images/cartes/',
-  afficherMot: true,
 
   cases: [
     // On montre la lettre écrite, puis ce que l'oreille entend.
