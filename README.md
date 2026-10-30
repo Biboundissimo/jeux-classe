@@ -84,3 +84,15 @@ Un clavier à l'écran est aussi disponible (bouton « Clavier »).
 2. Ajouter une tuile « Semaine 8 » dans `index.html`.
 3. Créer les jeux en copiant un dossier existant (ex. `jeux/mots-meles-s7/` → `jeux/mots-meles-s8/`) et changer `mots.js`,
    sans oublier `accueil: '../../semaine-8.html'` pour que le bouton ⌂ ramène à la bonne semaine.
+
+## Mettre en ligne une modification
+
+Les pages appellent leurs fichiers CSS et JavaScript avec un numéro de version (`commun.js?v=202610301619`).
+Après une modification d'un fichier `.css` ou `.js` (y compris un `mots.js`), changer ce numéro dans toutes les pages,
+pour que les navigateurs reprennent les nouveaux fichiers au lieu de leur ancienne copie :
+
+```sh
+V=$(date +%Y%m%d%H%M); find . -name "*.html" -not -path "./.git/*" -print0 | xargs -0 sed -i -E "s#\?v=[0-9]+\"#?v=$V\"#g"
+```
+
+Les pages elles-mêmes peuvent rester en mémoire jusqu'à 10 minutes chez GitHub Pages : Ctrl + F5 pour les voir tout de suite.
