@@ -10,7 +10,7 @@ lancerMotsCroises({
 
   mots: [
     { mot: 'soir',     definition: "Le moment de la journée où le soleil se couche." },
-    { mot: 'voiture',  definition: 'Elle a quatre roues et un volant. Papa la conduit.' },
+    { mot: 'voiture',  definition: 'Elle a quatre roues et un volant. Elle se conduit.' },
     { mot: 'histoire', definition: 'Le soir, maman me lit une belle …' },
     { mot: 'poire',    definition: 'Fruit vert ou jaune, qui ressemble un peu à une pomme.' },
     { mot: 'boite',    definition: "Il s'est fait mal au pied : il marche mal, il …" },
