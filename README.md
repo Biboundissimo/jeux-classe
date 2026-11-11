@@ -10,6 +10,7 @@ index.html                  page d'accueil (liste des semaines)
 semaine-revision.html       jeux de la semaine Révision
 semaine-7.html              jeux de la semaine 7
 semaine-8.html              jeux de la semaine 8
+semaine-9.html              jeux de la semaine 9
 css/commun.css              styles communs
 js/commun.js                voix, bruitages, glisser-déposer
 js/jeu-tri.js               moteur réutilisable « ranger des images dans des cases »
@@ -47,6 +48,11 @@ jeux/lettres-desordre-s8-1/ semaine 8 : un mouton, le monde, le bison, une carot
 jeux/lettres-desordre-s8-2/ semaine 8 : onze, il tombe, il trouve, trop
 jeux/mots-meles-s8/         semaine 8 : mots mêlés avec les 8 mots de la dictée
 jeux/mots-croises-s8/       semaine 8 : mots croisés avec les 8 mots de la dictée
+jeux/sons-oi-oin/           semaine 9 : jeu « oi et oin : qu'est-ce que j'entends ? » (2 cases)
+jeux/lettres-desordre-s9-1/ semaine 9 : le soir, la voiture, une histoire, une poire
+jeux/lettres-desordre-s9-2/ semaine 9 : il boite, la soif, le foin, un coin
+jeux/mots-meles-s9/         semaine 9 : mots mêlés avec les 8 mots de la dictée
+jeux/mots-croises-s9/       semaine 9 : mots croisés avec les 8 mots de la dictée
 credits.html                auteurs et licences des photos
 ```
 
