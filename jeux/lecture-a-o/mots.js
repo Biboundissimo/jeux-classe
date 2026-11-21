@@ -1,6 +1,6 @@
 /*
  * Jeu de LECTURE « La lettre a : quel son ? » (semaine 10, lecture « La lettre a : a, au et eau »).
- * Le mot est écrit sous la photo et n'est PAS lu à voix haute : l'enfant le lit,
+ * Seul le mot écrit est montré (pas de photo, pas de voix) : l'enfant doit vraiment le lire,
  * puis le range selon le son que fait la lettre a.
  *   [a]        : la lettre a se dit [a] (le chat)
  *   [o]        : au et eau se disent [o] (un seau)
@@ -8,13 +8,13 @@
  * Attention aussi aux petits mots : « la chambre » ferait entendre [a] → on écrit « une chambre ».
  * Chaque mot n'appartient qu'à une seule case : pas de mot qui contient à la fois [a] et [o]
  * (ex. « un bateau » ou « un oiseau » sont exclus).
- * Une fois rangé, l'enfant peut toucher la vignette pour entendre le mot.
+ * Une fois rangé dans la bonne case, la photo apparaît ; l'enfant peut la toucher pour entendre le mot.
  * Photos : Wikimedia Commons (auteurs et licences dans credits.html à la racine du site).
  */
 lancerJeuTri({
   titre: 'La lettre a : quel son ?',
   accueil: '../../semaine-10.html',
-  consigne: "Lis le mot sous la photo. Qu'est-ce que tu entends : [a] comme dans « chat », [o] comme dans « seau », ou un autre son ? Fais glisser la photo dans la bonne case.",
+  consigne: "Lis le mot. Qu'est-ce que tu entends : [a] comme dans « chat », [o] comme dans « seau », ou un autre son ? Fais glisser le mot dans la bonne case : sa photo apparaîtra !",
   dossierImages: '../../images/cartes/',
   lecture: true,
 

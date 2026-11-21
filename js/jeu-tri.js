@@ -10,8 +10,8 @@
  *   (variante : { id: 'ph', lettre: 'ph', prononce: '[f]', couleur: ... } affiche la lettre
  *    dans une carte, puis une oreille et le son entendu ; prononce: null = oreille barrée, lettre muette)
  *   mots:  [ { mot: 'tortue', image: 'tortue.jpg', case: 't', son: 'facultatif.mp3' }, ... ]
- *   lecture: true   (facultatif) jeu de LECTURE : le mot est écrit sur la carte et n'est pas lu à voix haute ;
- *                   l'enfant le lit, le range, puis peut toucher la vignette rangée pour l'entendre.
+ *   lecture: true   (facultatif) jeu de LECTURE : la carte montre seulement le mot écrit (pas de photo), sans le lire ;
+ *                   l'enfant le lit et le range ; la photo apparaît dans la vignette rangée (touchée : le mot est lu).
  *   (variante de case : { id: 'a', entendu: '[a]', couleur: ... } affiche seulement une oreille et le son entendu)
  * }
  */
@@ -46,7 +46,7 @@ function lancerJeuTri(config) {
 
       <main class="scene">
         <div class="emplacement-carte">
-          <div class="carte${lecture ? ' carte-lecture' : ''}" aria-live="polite"><img alt="">${lecture ? '<div class="mot-carte"></div>' : ''}</div>
+          <div class="carte${lecture ? ' carte-lecture' : ''}" aria-live="polite">${lecture ? '<div class="mot-carte"></div>' : '<img alt="">'}</div>
           ${lecture ? '' : `<button class="bouton-son" aria-label="Réécouter le mot">${ICONE_SON}</button>`}
         </div>
       </main>
@@ -146,9 +146,12 @@ function lancerJeuTri(config) {
     erreursMot = 0;
     cases.forEach(c => c.el.classList.remove('indice'));
     const m = motActuel();
-    imageCarte.src = config.dossierImages + m.image;
-    imageCarte.alt = lecture ? '' : m.mot;
+    // En lecture, seul le mot est montré : la photo n'apparaît qu'une fois le mot bien rangé.
     if (lecture) $('.mot-carte').textContent = m.mot;
+    else {
+      imageCarte.src = config.dossierImages + m.image;
+      imageCarte.alt = m.mot;
+    }
     carte.classList.remove('bloque', 'partie');
     carte.style.transition = 'none';
     carte.style.transform = '';
