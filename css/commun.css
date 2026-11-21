@@ -280,6 +280,25 @@ svg.inline { width: 1.3em; height: 1.3em; vertical-align: middle; }
 .etoiles .pleine:nth-child(3) { animation-delay: 0.4s; }
 .liste-revoir { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
 
+/* Jeu de lecture : la photo du mot bien rangé, affichée en grand un moment */
+.photo-gagnee {
+  position: fixed; left: 50%; top: 40%; z-index: 200;
+  transform: translate(-50%, -50%);
+  width: min(70vw, 60vh, 520px);
+  padding: 12px; background: var(--blanc); border-radius: 28px;
+  box-shadow: 0 18px 40px rgba(43, 45, 66, 0.3);
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  pointer-events: none;
+  animation: zoom-photo 0.4s cubic-bezier(.3, 1.6, .6, 1);
+}
+.photo-gagnee.cache { display: none; }
+.photo-gagnee img { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; border-radius: 20px; }
+.photo-gagnee span { font-size: clamp(1.8rem, 5vh, 2.8rem); font-weight: 700; }
+@keyframes zoom-photo {
+  from { transform: translate(-50%, -50%) scale(0.3); opacity: 0; }
+  to   { transform: translate(-50%, -50%) scale(1);   opacity: 1; }
+}
+
 /* ----- Animations ----- */
 @keyframes apparait {
   from { transform: scale(0.3); opacity: 0; }

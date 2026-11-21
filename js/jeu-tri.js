@@ -53,6 +53,8 @@ function lancerJeuTri(config) {
 
       <section class="cases"></section>
 
+      ${lecture ? '<div class="photo-gagnee cache" aria-hidden="true"><img alt=""><span></span></div>' : ''}
+
       <div class="ecran" id="ecran-debut">
         <div class="boite">
           <h2>${config.titre}</h2>
@@ -196,11 +198,20 @@ function lancerJeuTri(config) {
     cible.contenu.appendChild(vignette);
     cible.el.classList.remove('indice');
 
+    // En lecture, la photo du mot bien rangé s'affiche en grand un moment, en récompense.
+    const grande = lecture && $('.photo-gagnee');
+    if (grande) {
+      grande.querySelector('img').src = config.dossierImages + m.image;
+      grande.querySelector('span').textContent = m.mot;
+      grande.classList.remove('cache');
+    }
+
     setTimeout(() => {
+      if (grande) grande.classList.add('cache');
       rang++;
       if (rang < liste.length) montrerMot();
       else finDePartie();
-    }, 900);
+    }, grande ? 1600 : 900);
   }
 
   function mauvaiseReponse(cible) {
