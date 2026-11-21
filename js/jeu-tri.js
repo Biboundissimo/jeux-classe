@@ -10,6 +10,9 @@
  *   (variante : { id: 'ph', lettre: 'ph', prononce: '[f]', couleur: ... } affiche la lettre
  *    dans une carte, puis une oreille et le son entendu ; prononce: null = oreille barrée, lettre muette)
  *   mots:  [ { mot: 'tortue', image: 'tortue.jpg', case: 't', son: 'facultatif.mp3' }, ... ]
+ *   lecture: true   (facultatif) jeu de LECTURE : le mot est écrit sur la carte et n'est pas lu à voix haute ;
+ *                   l'enfant le lit, le range, puis peut toucher la vignette rangée pour l'entendre.
+ *   (variante de case : { id: 'a', entendu: '[a]', couleur: ... } affiche seulement une oreille et le son entendu)
  * }
  */
 function lancerJeuTri(config) {
@@ -31,6 +34,8 @@ function lancerJeuTri(config) {
   document.title = config.titre;
   // Page de la semaine où revenir avec le bouton ⌂ (sinon la page d'accueil).
   const accueil = config.accueil || '../../index.html';
+  // Jeu de lecture : le mot est écrit sur la carte, sans bouton pour l'écouter.
+  const lecture = !!config.lecture;
   document.body.innerHTML = `
     <div class="jeu">
       <header class="bandeau">
@@ -41,8 +46,8 @@ function lancerJeuTri(config) {
 
       <main class="scene">
         <div class="emplacement-carte">
-          <div class="carte" aria-live="polite"><img alt=""></div>
-          <button class="bouton-son" aria-label="Réécouter le mot">${ICONE_SON}</button>
+          <div class="carte${lecture ? ' carte-lecture' : ''}" aria-live="polite"><img alt="">${lecture ? '<div class="mot-carte"></div>' : ''}</div>
+          ${lecture ? '' : `<button class="bouton-son" aria-label="Réécouter le mot">${ICONE_SON}</button>`}
         </div>
       </main>
 
@@ -52,8 +57,8 @@ function lancerJeuTri(config) {
         <div class="boite">
           <h2>${config.titre}</h2>
           <p>${config.consigne}</p>
-          <p class="petit">Appuie sur ${ICONE_SON.replace('<svg', '<svg class="inline"')} pour réécouter le mot.</p>
-          ${Ecole.syntheseDispo ? '' : '<p class="alerte">Ce navigateur ne sait pas lire les mots à voix haute. Essaie avec Chrome ou Edge.</p>'}
+          ${lecture ? '' : `<p class="petit">Appuie sur ${ICONE_SON.replace('<svg', '<svg class="inline"')} pour réécouter le mot.</p>`}
+          ${Ecole.syntheseDispo || lecture ? '' :'<p class="alerte">Ce navigateur ne sait pas lire les mots à voix haute. Essaie avec Chrome ou Edge.</p>'}
           <button class="gros-bouton" id="commencer">Commencer</button>
         </div>
       </div>
@@ -85,7 +90,12 @@ function lancerJeuTri(config) {
     const el = document.createElement('div');
     el.className = 'case';
     el.style.setProperty('--couleur', c.couleur);
-    const titre = 'prononce' in c
+    const titre = 'entendu' in c
+      ? `<div class="titre-case titre-son">
+           ${iconeOreille(false)}
+           <span class="son-entendu">${c.entendu}</span>
+         </div>`
+      : 'prononce' in c
       ? `<div class="titre-case titre-son">
            <strong class="carte-lettre">${c.lettre}</strong>
            ${iconeOreille(!c.prononce)}
@@ -111,7 +121,8 @@ function lancerJeuTri(config) {
   let resultats = []; // nombre d'erreurs pour chaque mot
 
   const motActuel = () => liste[rang];
-  const direMot = () => Ecole.dire(motActuel().mot, motActuel().son);
+  // En lecture, le mot n'est jamais lu pendant que l'enfant le cherche.
+  const direMot = () => { if (!lecture) Ecole.dire(motActuel().mot, motActuel().son); };
 
   function dessinerProgression() {
     progression.innerHTML = liste.map((_, i) => {
@@ -136,7 +147,8 @@ function lancerJeuTri(config) {
     cases.forEach(c => c.el.classList.remove('indice'));
     const m = motActuel();
     imageCarte.src = config.dossierImages + m.image;
-    imageCarte.alt = m.mot;
+    imageCarte.alt = lecture ? '' : m.mot;
+    if (lecture) $('.mot-carte').textContent = m.mot;
     carte.classList.remove('bloque', 'partie');
     carte.style.transition = 'none';
     carte.style.transform = '';
@@ -166,7 +178,7 @@ function lancerJeuTri(config) {
 
   // L'animation d'apparition bloquerait le déplacement : on la retire dès qu'elle est finie.
   carte.addEventListener('animationend', () => carte.classList.remove('apparait'));
-  $('.bouton-son').addEventListener('click', direMot);
+  if (!lecture) $('.bouton-son').addEventListener('click', direMot);
 
   function bonneReponse(cible) {
     Ecole.bruitage('bravo');
@@ -215,7 +227,7 @@ function lancerJeuTri(config) {
 
     const aRevoir = liste.filter((_, i) => resultats[i] > 0);
     $('.a-revoir').innerHTML = aRevoir.length
-      ? '<p>Mots à réécouter :</p><div class="liste-revoir"></div>'
+      ? `<p>${lecture ? 'Mots à relire (touche-les pour les entendre)' : 'Mots à réécouter'} :</p><div class="liste-revoir"></div>`
       : '';
     aRevoir.forEach(m => {
       const b = document.createElement('button');

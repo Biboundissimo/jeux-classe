@@ -72,7 +72,8 @@ function lancerJeuLettres(config) {
   let liste = [], rang = 0, termine = false;
 
   const motActuel = () => liste[rang];
-  const phrase = m => (m.avant ? m.avant + ' ' : '') + m.mot;
+  // « l' » se colle au mot (l'eau) ; les autres petits mots sont suivis d'une espace.
+  const phrase = m => (m.avant ? m.avant + (m.avant.endsWith("'") ? '' : ' ') : '') + m.mot;
   const direMot = () => Ecole.dire(phrase(motActuel()), motActuel().son);
 
   /**

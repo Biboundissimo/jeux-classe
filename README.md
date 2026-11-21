@@ -11,6 +11,7 @@ semaine-revision.html       jeux de la semaine Révision
 semaine-7.html              jeux de la semaine 7
 semaine-8.html              jeux de la semaine 8
 semaine-9.html              jeux de la semaine 9
+semaine-10.html             jeux de la semaine 10
 css/commun.css              styles communs
 js/commun.js                voix, bruitages, glisser-déposer
 js/jeu-tri.js               moteur réutilisable « ranger des images dans des cases »
@@ -53,6 +54,11 @@ jeux/lettres-desordre-s9-1/ semaine 9 : le soir, la voiture, une histoire, une p
 jeux/lettres-desordre-s9-2/ semaine 9 : il boite, la soif, le foin, un coin
 jeux/mots-meles-s9/         semaine 9 : mots mêlés avec les 8 mots de la dictée
 jeux/mots-croises-s9/       semaine 9 : mots croisés avec les 8 mots de la dictée
+jeux/lecture-a-o/          semaine 10 : jeu de LECTURE « La lettre a : quel son ? » ([a], [o] ou autre son), mot écrit, pas lu
+jeux/lettres-desordre-s10-1/ semaine 10 : jaune, c'est chaud, elle saute, un oiseau
+jeux/lettres-desordre-s10-2/ semaine 10 : l'eau, un bateau, il est beau, aussi
+jeux/mots-meles-s10/        semaine 10 : mots mêlés avec les 8 mots de la dictée
+jeux/mots-croises-s10/      semaine 10 : mots croisés avec les 8 mots de la dictée
 credits.html                auteurs et licences des photos
 ```
 

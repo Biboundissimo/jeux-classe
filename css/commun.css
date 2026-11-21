@@ -134,6 +134,10 @@ button { font-family: inherit; }
   z-index: 10;
 }
 .carte img { width: 100%; height: 100%; object-fit: contain; border-radius: 20px; pointer-events: none; -webkit-user-drag: none; }
+/* Jeu de lecture : la photo puis le mot écrit en dessous */
+.carte-lecture { aspect-ratio: 1 / 1; width: min(44vh, 50vw, 380px); grid-template-rows: minmax(0, 1fr) auto; gap: 4px; }
+.carte-lecture img { min-height: 0; }
+.mot-carte { font-size: clamp(1.8rem, 5vh, 2.8rem); font-weight: 700; line-height: 1.1; text-align: center; padding-bottom: 4px; }
 .carte.en-main { cursor: grabbing; box-shadow: 0 18px 40px rgba(43, 45, 66, 0.3); z-index: 100; }
 .carte.apparait { animation: apparait 0.45s cubic-bezier(.3, 1.6, .6, 1); }
 .carte.partie { opacity: 0; transition: opacity 0.25s !important; }
