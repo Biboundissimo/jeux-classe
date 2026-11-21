@@ -4,7 +4,7 @@
  * puis le range selon le son que fait la lettre a.
  *   [a]        : la lettre a se dit [a] (le chat)
  *   [o]        : au et eau se disent [o] (un seau)
- *   autre son  : an, am, ai… (une lampe, une fraise)
+ *   autre son  : an, am, ai, ain… (une lampe, une fraise, du pain)
  * Attention aussi aux petits mots : « la chambre » ferait entendre [a] → on écrit « une chambre ».
  * Chaque mot n'appartient qu'à une seule case : pas de mot qui contient à la fois [a] et [o]
  * (ex. « un bateau » ou « un oiseau » sont exclus).
@@ -30,15 +30,21 @@ lancerJeuTri({
     { mot: 'un phare',     image: 'phare.jpg',           case: 'a' },
     { mot: 'une tache',    image: 'tache.jpg',           case: 'a' },
     { mot: 'un lapin',     image: '../animaux/lapin.jpg', case: 'a' },
+    { mot: 'une pharmacie', image: 'pharmacie.jpg',      case: 'a' },
+    { mot: 'une moustache', image: 'moustache.jpg',      case: 'a' },
     // au, eau : son [o]
     { mot: 'un seau',      image: 'seau.jpg',            case: 'o' },
     { mot: 'un museau',    image: 'museau.jpg',          case: 'o' },
     { mot: 'un taureau',   image: 'taureau.jpg',         case: 'o' },
     { mot: 'une autruche', image: '../animaux/autruche.jpg', case: 'o' },
+    { mot: 'un dauphin',   image: '../animaux/dauphin.jpg', case: 'o' },
+    { mot: 'jaune',        image: 'jaune.jpg',           case: 'o' },
     // an, am, ai : un autre son
     { mot: 'un éléphant',  image: 'elephant.jpg',        case: 'autre' },
     { mot: 'une chambre',  image: 'chambre.jpg',         case: 'autre' },
     { mot: 'une lampe',    image: 'lampe.jpg',           case: 'autre' },
     { mot: 'une fraise',   image: 'fraise.jpg',          case: 'autre' },
+    { mot: 'du pain',      image: 'pain.jpg',            case: 'autre' },
+    { mot: 'les mains',    image: 'mains.jpg',           case: 'autre' },
   ],
 });

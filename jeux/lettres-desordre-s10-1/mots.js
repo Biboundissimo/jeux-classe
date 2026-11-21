@@ -1,5 +1,5 @@
 /*
- * Jeu « Les lettres en désordre 1 » de la semaine 10 (mots de la dictée : a, au et eau).
+ * Jeu « Les lettres en désordre 1 » de la semaine 10 (mots de la dictée avec au).
  * avant : petit mot affiché devant, déjà dans l'ordre et qu'on ne peut pas déplacer (facultatif).
  * Photos : Wikimedia Commons (auteurs et licences dans credits.html à la racine du site).
  *
@@ -17,6 +17,6 @@ lancerJeuLettres({
     { mot: 'jaune',  image: 'jaune.jpg' },
     { mot: 'chaud',  image: 'chaud.jpg',  avant: "c'est" },
     { mot: 'saute',  image: 'saute.jpg',  avant: 'elle' },
-    { mot: 'oiseau', image: 'oiseau.jpg', avant: 'un' },
+    { mot: 'aussi',  image: 'aussi.jpg' },
   ],
 });

@@ -55,8 +55,8 @@ jeux/lettres-desordre-s9-2/ semaine 9 : il boite, la soif, le foin, un coin
 jeux/mots-meles-s9/         semaine 9 : mots mêlés avec les 8 mots de la dictée
 jeux/mots-croises-s9/       semaine 9 : mots croisés avec les 8 mots de la dictée
 jeux/lecture-a-o/          semaine 10 : jeu de LECTURE « La lettre a : quel son ? » ([a], [o] ou autre son), mot écrit, pas lu
-jeux/lettres-desordre-s10-1/ semaine 10 : jaune, c'est chaud, elle saute, un oiseau
-jeux/lettres-desordre-s10-2/ semaine 10 : l'eau, un bateau, il est beau, aussi
+jeux/lettres-desordre-s10-1/ semaine 10 : mots avec au (jaune, c'est chaud, elle saute, aussi)
+jeux/lettres-desordre-s10-2/ semaine 10 : mots avec eau (l'eau, un bateau, il est beau, un oiseau)
 jeux/mots-meles-s10/        semaine 10 : mots mêlés avec les 8 mots de la dictée
 jeux/mots-croises-s10/      semaine 10 : mots croisés avec les 8 mots de la dictée
 credits.html                auteurs et licences des photos
