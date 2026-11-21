@@ -17,6 +17,7 @@ lancerJeuLettres({
     { mot: 'jaune',  image: 'jaune.jpg' },
     { mot: 'chaud',  image: 'chaud.jpg',  avant: "c'est" },
     { mot: 'saute',  image: 'saute.jpg',  avant: 'elle' },
-    { mot: 'aussi',  image: 'aussi.jpg' },
+    // « aussi » est difficile à montrer : la voix lit une phrase qui explique la photo.
+    { mot: 'aussi',  image: 'aussi.jpg',  dire: 'Le chat dort, le chien aussi.' },
   ],
 });

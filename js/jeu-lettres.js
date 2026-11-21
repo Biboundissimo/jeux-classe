@@ -10,6 +10,8 @@
  *   mouvementsMin: 2,   // au moins 2 lettres à déplacer pour remettre le mot en ordre (facultatif)
  *   mots: [ { mot: 'grimpe', avant: 'elle', image: 'grimpe.jpg', son: 'facultatif.mp3' }, ... ]
  *           // « avant » : mot affiché devant, déjà en ordre et non déplaçable (facultatif)
+ *           // « dire » : phrase lue à voix haute à la place du mot, pour les mots difficiles à montrer en photo
+ *           //            (ex. { mot: 'aussi', dire: 'Le chat dort, le chien aussi.' }) (facultatif)
  * }
  */
 function lancerJeuLettres(config) {
@@ -74,7 +76,8 @@ function lancerJeuLettres(config) {
   const motActuel = () => liste[rang];
   // « l' » se colle au mot (l'eau) ; les autres petits mots sont suivis d'une espace.
   const phrase = m => (m.avant ? m.avant + (m.avant.endsWith("'") ? '' : ' ') : '') + m.mot;
-  const direMot = () => Ecole.dire(phrase(motActuel()), motActuel().son);
+  const aDire = m => m.dire || phrase(m);
+  const direMot = () => Ecole.dire(aDire(motActuel()), motActuel().son);
 
   /**
    * Nombre minimum de lettres à déplacer pour retrouver le mot.
@@ -217,7 +220,7 @@ function lancerJeuLettres(config) {
     const mini = document.createElement('button');
     mini.className = 'mini-carte';
     mini.innerHTML = `<img src="${config.dossierImages + m.image}" alt=""><span>${phrase(m).toUpperCase()}</span>`;
-    mini.addEventListener('click', () => Ecole.dire(phrase(m), m.son));
+    mini.addEventListener('click', () => Ecole.dire(aDire(m), m.son));
     mini.style.visibility = 'hidden';
     collection.appendChild(mini);
 
