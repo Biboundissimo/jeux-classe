@@ -12,6 +12,7 @@ semaine-7.html              jeux de la semaine 7
 semaine-8.html              jeux de la semaine 8
 semaine-9.html              jeux de la semaine 9
 semaine-10.html             jeux de la semaine 10
+semaine-11.html             jeux de la semaine 11
 css/commun.css              styles communs
 js/commun.js                voix, bruitages, glisser-déposer
 js/jeu-tri.js               moteur réutilisable « ranger des images dans des cases »
@@ -59,6 +60,11 @@ jeux/lettres-desordre-s10-1/ semaine 10 : mots avec au (jaune, c'est chaud, elle
 jeux/lettres-desordre-s10-2/ semaine 10 : mots avec eau (l'eau, un bateau, il est beau, un oiseau)
 jeux/mots-meles-s10/        semaine 10 : mots mêlés avec les 8 mots de la dictée
 jeux/mots-croises-s10/      semaine 10 : mots croisés avec les 8 mots de la dictée
+jeux/lecture-ai-ain-au/     semaine 11 : jeu de LECTURE « ai, ain ou au : quel son ? » ([è], [in] ou [o])
+jeux/lettres-desordre-s11-1/ semaine 11 : la chaise, une maîtresse, une maison, la semaine
+jeux/lettres-desordre-s11-2/ semaine 11 : elle aime, un aigle, jamais, demain (phrases lues pour les mots abstraits)
+jeux/mots-meles-s11/        semaine 11 : mots mêlés avec les 8 mots de la dictée
+jeux/mots-croises-s11/      semaine 11 : mots croisés avec les 8 mots de la dictée
 credits.html                auteurs et licences des photos
 ```
 
