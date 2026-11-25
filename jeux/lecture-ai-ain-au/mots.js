@@ -1,5 +1,5 @@
 /*
- * Jeu de LECTURE « ai, ain ou au : quel son ? » (semaine 11, lecture « La lettre a : ai, ain et aim »).
+ * Jeu de LECTURE « J'entends [è], [in] ou [o] ? » (semaine 11, lecture « La lettre a : ai, ain et aim »).
  * Seul le mot écrit est montré (pas de photo, pas de voix) : l'enfant doit vraiment le lire,
  * puis le range selon ce qu'il entend :
  *   ai  → [è]  (la chaise)
@@ -11,17 +11,17 @@
  * Photos : Wikimedia Commons (auteurs et licences dans credits.html à la racine du site).
  */
 lancerJeuTri({
-  titre: 'ai, ain ou au : quel son ?',
+  titre: "J'entends [è], [in] ou [o] ?",
   accueil: '../../semaine-11.html',
-  consigne: 'Lis le mot. Attention : ai se dit [è], ain se dit [in] et au se dit [o] ! Fais glisser le mot dans la bonne case : sa photo apparaîtra !',
+  consigne: "Lis le mot. Qu'est-ce que tu entends : [è], [in] ou [o] ? Fais glisser le mot dans la bonne case : sa photo apparaîtra !",
   dossierImages: '../../images/cartes/',
   lecture: true,
 
   cases: [
-    // On montre l'écriture, puis ce que l'oreille entend.
-    { id: 'ai',  lettre: 'ai',  prononce: '[è]',  couleur: '#e76f51' },
-    { id: 'ain', lettre: 'ain', prononce: '[in]', couleur: '#2a9d8f' },
-    { id: 'au',  lettre: 'au',  prononce: '[o]',  couleur: '#3a86ff' },
+    // Seulement le son entendu (pas l'écriture), sinon il suffirait de comparer les lettres sans lire.
+    { id: 'ai',  entendu: '[è]',  couleur: '#e76f51' },
+    { id: 'ain', entendu: '[in]', couleur: '#2a9d8f' },
+    { id: 'au',  entendu: '[o]',  couleur: '#3a86ff' },
   ],
 
   mots: [

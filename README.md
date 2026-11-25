@@ -60,7 +60,7 @@ jeux/lettres-desordre-s10-1/ semaine 10 : mots avec au (jaune, c'est chaud, elle
 jeux/lettres-desordre-s10-2/ semaine 10 : mots avec eau (l'eau, un bateau, il est beau, un oiseau)
 jeux/mots-meles-s10/        semaine 10 : mots mêlés avec les 8 mots de la dictée
 jeux/mots-croises-s10/      semaine 10 : mots croisés avec les 8 mots de la dictée
-jeux/lecture-ai-ain-au/     semaine 11 : jeu de LECTURE « ai, ain ou au : quel son ? » ([è], [in] ou [o])
+jeux/lecture-ai-ain-au/     semaine 11 : jeu de LECTURE « J'entends [è], [in] ou [o] ? »
 jeux/lettres-desordre-s11-1/ semaine 11 : la chaise, une maîtresse, une maison, la semaine
 jeux/lettres-desordre-s11-2/ semaine 11 : elle aime, un aigle, jamais, demain (phrases lues pour les mots abstraits)
 jeux/mots-meles-s11/        semaine 11 : mots mêlés avec les 8 mots de la dictée
